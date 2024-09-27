@@ -15,6 +15,7 @@ let addvalidation = Joi.object({
   status: Joi.string().valid("pending", "in-progress", "completed").optional(),
 });
 export const add = async (req, res) => {
+  console.log("🚀 ~ add ~ req:", req.user);
   try {
     const { error } = addvalidation.validate(req.body);
     if (error) {
